@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-beat-deployment
+  labels:
+    app: celery-beat
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: celery-beat
+
+  template:
+    metadata:
+      labels:
+        app: celery-beat
+
+    spec:
+      containers:
+        - name: celery-beat
+
+          image: lms-backend:latest
+          imagePullPolicy: IfNotPresent
+
+          command:
+            - celery
+            - -A
+            - src.core
+            - beat
+            - -l
+            - info
+            - --scheduler
+            - django_celery_beat.schedulers:DatabaseScheduler
+
+          envFrom:
+            - secretRef:
+                name: backend-secrets
+
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+
+      restartPolicy: Always

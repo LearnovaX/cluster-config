@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: celery-worker-deployment
+  labels:
+    app: celery-worker
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: celery-worker
+
+  template:
+    metadata:
+      labels:
+        app: celery-worker
+
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - worker
+
+      containers:
+        - name: celery-worker
+
+          image: lms-backend:latest
+          imagePullPolicy: IfNotPresent
+
+          command:
+            - celery
+            - -A
+            - src.core
+            - worker
+            - -l
+            - info
+            - --concurrency=1
+
+          envFrom:
+            - secretRef:
+                name: backend-secrets
+
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+      restartPolicy: Always

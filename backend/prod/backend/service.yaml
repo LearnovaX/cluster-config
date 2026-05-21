@@ -5,6 +5,8 @@ metadata:
   name: lms-backend-service
 
 spec:
+  type: ClusterIP
+
   selector:
     app: lms-backend
 
@@ -12,5 +14,3 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8000
-
-  type: ClusterIP
