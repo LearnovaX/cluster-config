@@ -44,12 +44,23 @@ spec:
 
           resources:
             requests:
-              memory: "256Mi"
+              memory: "64Mi"
               cpu: "200m"
 
             limits:
-              memory: "1Gi"
-              cpu: "1"
+              memory: "256Mi"
+              cpu: "500m"
+          args:
+            - "-c"
+            - "shared_buffers=64MB"
+            - "-c"
+            - "work_mem=2MB"
+            - "-c"
+            - "maintenance_work_mem=32MB"
+            - "-c"
+            - "effective_cache_size=128MB"
+            - "-c"
+            - "max_connections=20"
 
   volumeClaimTemplates:
     - metadata:
