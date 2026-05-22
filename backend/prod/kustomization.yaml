@@ -1,6 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: lms
+
 resources:
   - postgres/secret.yml
   - postgres/service.yml

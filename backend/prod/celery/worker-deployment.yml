@@ -33,8 +33,8 @@ spec:
         - name: celery-worker
 
           image: lms-backend:latest
-          imagePullPolicy: IfNotPresent
-
+          imagePullPolicy: Always
+  
           command:
             - celery
             - -A
@@ -47,6 +47,20 @@ spec:
           envFrom:
             - secretRef:
                 name: backend-secrets
+
+            - secretRef:
+                name: postgres-secret
+          
+          affinity:
+            nodeAffinity:
+              preferredDuringSchedulingIgnoredDuringExecution:
+                - weight: 100
+                  preference:
+                    matchExpressions:
+                      - key: role
+                        operator: In
+                        values:
+                          - infra
 
           resources:
             requests:

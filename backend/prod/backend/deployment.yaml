@@ -9,7 +9,7 @@ metadata:
     tier: backend
 
 spec:
-  replicas: 2
+  replicas: 1
 
   strategy:
     type: RollingUpdate
@@ -37,7 +37,7 @@ spec:
                   - key: role
                     operator: In
                     values:
-                      - web
+                      - worker
 
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -54,14 +54,14 @@ spec:
         - name: lms-backend
 
           image: lms-backend:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 8000
 
           envFrom:
             - secretRef:
-                name: backend-secret
+                name: backend-secrets
 
             - secretRef:
                 name: postgres-secret
@@ -92,3 +92,4 @@ spec:
               cpu: "500m"
 
       restartPolicy: Always
+      
