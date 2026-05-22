@@ -18,6 +18,17 @@ spec:
         app: celery-beat
 
     spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - infra
+
       containers:
         - name: celery-beat
 
@@ -41,17 +52,6 @@ spec:
             - secretRef:
                 name: postgres-secret
           
-          affinity:
-            nodeAffinity:
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 100
-                  preference:
-                    matchExpressions:
-                      - key: role
-                        operator: In
-                        values:
-                          - infra
-
           resources:
             requests:
               memory: "64Mi"
