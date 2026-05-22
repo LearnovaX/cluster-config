@@ -11,28 +11,28 @@ on:
     workflow_dispatch:
 
 jobs:
- validate:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    # Render kustomize locally (no cluster access)
-    - name: Render manifests (kustomize)
-      run: |
-        kubectl kustomize backend/prod > /tmp/manifests.yaml
+      # Render kustomize locally (no cluster access)
+      - name: Render manifests (kustomize)
+        run: |
+          kubectl kustomize backend/prod > /tmp/manifests.yaml
 
-    - name: Install kubeconform
-      run: |
-        curl -sSL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz \
-          | tar -xz -C /usr/local/bin kubeconform
-        kubeconform -v
+      - name: Install kubeconform
+        run: |
+          curl -sSL https://github.com/yannh/kubeconform/releases/latest/download/kubeconform-linux-amd64.tar.gz \
+            | tar -xz -C /usr/local/bin kubeconform
+          kubeconform -v
 
-    - name: Validate manifests (kubeconform)
-      run: |
-        # -strict: catch missing required fields
-        # -ignore-missing-schemas: don’t fail on CRDs/custom resources unless you provide schemas for them
-        kubeconform -strict -ignore-missing-schemas -summary /tmp/manifests.yaml
+      - name: Validate manifests (kubeconform)
+        run: |
+          # -strict: catch missing required fields
+          # -ignore-missing-schemas: don’t fail on CRDs/custom resources unless you provide schemas for them
+          kubeconform -strict -ignore-missing-schemas -summary /tmp/manifests.yaml
 
 
   deploy:
