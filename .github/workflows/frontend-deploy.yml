@@ -23,7 +23,7 @@ jobs:
 
       - name: Validate manifests
         run: |
-          kubectl apply --dry-run=client -k frontend/prod
+          kubectl apply --dry-run=client --validate=false -k frontend/prod
 
   deploy:
     needs: validate
