@@ -28,17 +28,10 @@ spec:
         app: lms-backend
 
     spec:
+      nodeSelector:
+        role: worker
+        
       affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 100
-              preference:
-                matchExpressions:
-                  - key: role
-                    operator: In
-                    values:
-                      - worker
-
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
@@ -90,4 +83,5 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "500m"
+
       
