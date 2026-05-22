@@ -7,3 +7,8 @@ resources:
   - secrets.yml
   - deployment.yml
   - service.yml
+
+images:
+  - name: frontend-image
+    newName: ghcr.io/LearnovaX/frontend
+    newTag: initial

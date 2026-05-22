@@ -32,7 +32,7 @@ spec:
       containers:
         - name: celery-worker
 
-          image: lms-backend:latest
+          image: backend-image
           imagePullPolicy: Always
   
           command:

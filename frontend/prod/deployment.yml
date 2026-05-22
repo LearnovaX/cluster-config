@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: frontend
-          # Replace this image with your built frontend image (registry/path:tag)
-          image: REPLACE_WITH_FRONTEND_IMAGE
+          image: frontend-image
           imagePullPolicy: IfNotPresent
+          
           ports:
             - containerPort: 80
               name: http

@@ -18,3 +18,8 @@ resources:
 
   - celery/worker-deployment.yml
   - celery/beat-deployment.yml
+
+images:
+  - name: backend-image
+    newName: ghcr.io/LearnovaX/backend
+    newTag: initial

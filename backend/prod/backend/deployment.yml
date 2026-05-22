@@ -53,7 +53,7 @@ spec:
       containers:
         - name: lms-backend
 
-          image: lms-backend:latest
+          image: backend-image
           imagePullPolicy: Always
 
           ports:

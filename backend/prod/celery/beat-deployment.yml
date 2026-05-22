@@ -21,7 +21,7 @@ spec:
       containers:
         - name: celery-beat
 
-          image: lms-backend:latest
+          image: backend-image
           imagePullPolicy: Always
 
           command:
