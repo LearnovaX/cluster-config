@@ -10,5 +10,5 @@ resources:
 
 images:
   - name: frontend-image
-    newName: ghcr.io/LearnovaX/frontend
+    newName: ghcr.io/learnovax/frontend
     newTag: initial
