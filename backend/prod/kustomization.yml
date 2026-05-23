@@ -7,10 +7,10 @@ namespace: lms
 
 
 resources:
-- postgres/secrets.yml
-- postgres/service.yml
-- postgres/pvc.yml
-- postgres/statefulset.yml
+# - postgres/secrets.yml
+# - postgres/service.yml
+# - postgres/pvc.yml
+# - postgres/statefulset.yml
 - redis/deployment.yml
 - redis/service.yml
 - backend/secrets.yml
