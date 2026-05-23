@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: lms
 
 resources:
-  - secrets.yml
-  - deployment.yml
-  - service.yml
+- secrets.yml
+- deployment.yml
+- service.yml
 
 images:
-  - name: frontend-image
-    newName: ghcr.io/learnovax/frontend
-    newTag: initial
+- name: frontend-image
+  newName: ghcr.io/learnovax/frontend
+  newTag: f3fd6b5604b6737296ee5bcd64dd49e3da203e86
