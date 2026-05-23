@@ -6,11 +6,11 @@ namespace: lms
 
 
 
-resources:
 # - postgres/secrets.yml
 # - postgres/service.yml
 # - postgres/pvc.yml
 # - postgres/statefulset.yml
+resources:
 - redis/deployment.yml
 - redis/service.yml
 - backend/secrets.yml
@@ -22,4 +22,4 @@ resources:
 images:
 - name: backend-image
   newName: ghcr.io/learnovax/backend
-  newTag: 1d5418bf7f7055fef98755451bc31a030a2a6c0c
+  newTag: 33c2650b5cdbb1e91c937f9d805d5a6372448ae1
