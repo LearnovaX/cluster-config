@@ -16,6 +16,7 @@ resources:
 - backend/secrets.yml
 - backend/deployment.yml
 - backend/service.yml
+- backend/ingress.yml
 - celery/worker-deployment.yml
 - celery/beat-deployment.yml
 

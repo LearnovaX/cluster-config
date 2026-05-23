@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: lms-backend-ingress
+
+spec:
+  ingressClassName: traefik
+
+  rules:
+    - host: website-project.uz
+
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+
+            backend:
+              service:
+                name: lms-frontend-service
+
+                port:
+                  number: 80
