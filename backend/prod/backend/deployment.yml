@@ -61,7 +61,7 @@ spec:
 
           readinessProbe:
             httpGet:
-              path: /healthz/
+              path: /health/
               port: 8000
             initialDelaySeconds: 30
             periodSeconds: 10
@@ -70,14 +70,14 @@ spec:
 
           startupProbe:
             httpGet:
-              path: /healthz/
+              path: /health/
               port: 8000
             failureThreshold: 30
             periodSeconds: 5
             
           livenessProbe:
             httpGet:
-              path: /healthz/
+              path: /health/
               port: 8000
             initialDelaySeconds: 60
             periodSeconds: 15
