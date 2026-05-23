@@ -3,23 +3,23 @@ kind: Kustomization
 
 namespace: lms
 
+
+
+
 resources:
-  - postgres/secrets.yml
-  - postgres/service.yml
-  - postgres/pvc.yml
-  - postgres/statefulset.yml
-
-  - redis/deployment.yml
-  - redis/service.yml
-
-  - backend/secrets.yml
-  - backend/deployment.yml
-  - backend/service.yml
-
-  - celery/worker-deployment.yml
-  - celery/beat-deployment.yml
+- postgres/secrets.yml
+- postgres/service.yml
+- postgres/pvc.yml
+- postgres/statefulset.yml
+- redis/deployment.yml
+- redis/service.yml
+- backend/secrets.yml
+- backend/deployment.yml
+- backend/service.yml
+- celery/worker-deployment.yml
+- celery/beat-deployment.yml
 
 images:
-  - name: backend-image
-    newName: ghcr.io/learnovax/backend
-    newTag: c564777ef3927f68fae5c808832a681dfbba5a8a 
+- name: backend-image
+  newName: ghcr.io/learnovax/backend
+  newTag: c564777ef3927f68fae5c808832a681dfbba5a8a
