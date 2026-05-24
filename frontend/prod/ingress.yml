@@ -11,7 +11,7 @@ spec:
 
   rules:
     # - host: website-project.uz
-    http:
+    - http:
       paths:
         - path: /
           pathType: Prefix
