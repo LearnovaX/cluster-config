@@ -15,8 +15,17 @@ spec:
         app: celery-worker
     spec:
       # Affinity belongs here at the Pod spec level
-      nodeSelector:
-        role: worker
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - worker
+
         
       containers:
         - name: celery-worker
