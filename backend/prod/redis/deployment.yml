@@ -18,8 +18,17 @@ spec:
         app: redis
 
     spec:
-      nodeSelector:
-        role: infra
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              preference:
+                matchExpressions:
+                  - key: role
+                    operator: In
+                    values:
+                      - worker
+
 
       containers:
         - name: redis
