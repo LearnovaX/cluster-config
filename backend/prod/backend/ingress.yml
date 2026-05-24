@@ -5,18 +5,17 @@ metadata:
   name: lms-backend-ingress
   annotations:
     traefik.ingress.kubernetes.io/router.priority: "100"
-
+    
 spec:
   ingressClassName: traefik
-
+  
   rules:
-    # - host: website-project.uz
     - http:
         paths:
-        - path: /api
-           pathType: Prefix
-              backend:
-                service:
-                  name: lms-backend-service
-                  port:
-                    number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: lms-backend-service
+                port:
+                  number: 80
