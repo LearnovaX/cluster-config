@@ -10,7 +10,7 @@ spec:
   ingressClassName: traefik
 
   rules:
-    - host: website-project.uz
+    # - host: website-project.uz
 
       http:
         paths:
