@@ -27,7 +27,7 @@ spec:
                   - key: role
                     operator: In
                     values:
-                      - infra
+                      - worker
 
       containers:
         - name: celery-beat
