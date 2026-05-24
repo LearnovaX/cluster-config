@@ -3,6 +3,8 @@ kind: Ingress
 
 metadata:
   name: lms-frontend-ingress
+  annotations:
+    traefik.ingress.kubernetes.io/router.priority: "1"
 
 spec:
   ingressClassName: traefik
