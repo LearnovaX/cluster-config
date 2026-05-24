@@ -20,7 +20,7 @@ spec:
 
     spec:
       nodeSelector:
-        role: infra
+        role: control-plane
 
       containers:
         - name: postgres
