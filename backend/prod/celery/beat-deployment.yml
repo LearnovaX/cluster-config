@@ -49,8 +49,8 @@ spec:
             - secretRef:
                 name: backend-secrets
 
-            - secretRef:
-                name: postgres-secret
+            # - secretRef:
+            #     name: postgres-secret
           
           resources:
             requests:
