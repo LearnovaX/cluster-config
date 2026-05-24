@@ -12,13 +12,11 @@ spec:
   rules:
     # - host: website-project.uz
     - http:
-      paths:
+        paths:
         - path: /api
-          pathType: Prefix
-
-          backend:
-            service:
-              name: lms-backend-service
-
-              port:
-                number: 80
+           pathType: Prefix
+              backend:
+                service:
+                  name: lms-backend-service
+                  port:
+                    number: 80
