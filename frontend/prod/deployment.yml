@@ -15,7 +15,7 @@ spec:
         app: frontend
     spec:
       nodeSelector:
-        role: control-plane
+        role: worker
       containers:
         - name: frontend
           image: frontend-image
