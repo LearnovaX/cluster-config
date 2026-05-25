@@ -5,12 +5,14 @@ metadata:
   name: lms-backend-ingress
   annotations:
     traefik.ingress.kubernetes.io/router.priority: "100"
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 
 spec:
   ingressClassName: traefik
 
   rules:
-    - http:
+    - host: website-project.uz
+      http:
         paths:
           - path: /api
             pathType: Prefix
