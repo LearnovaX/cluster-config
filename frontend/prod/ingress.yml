@@ -4,14 +4,20 @@ kind: Ingress
 metadata:
   name: lms-frontend-ingress
   annotations:
-    traefik.ingress.kubernetes.io/router.priority: "1"
-    
-spec:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 
+spec:
   ingressClassName: traefik
-  
+
+  tls:
+    - hosts:
+        - website-project.uz
+      secretName: website-project-tls
+
   rules:
-    - http:
+    - host: website-project.uz
+      http:
         paths:
           - path: /
             pathType: Prefix
