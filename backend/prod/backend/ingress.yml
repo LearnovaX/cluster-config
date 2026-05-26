@@ -37,9 +37,9 @@ spec:
                   number: 80
                   
           - path: /ws
-              pathType: Prefix
-              backend:
-                service:
-                  name: lms-backend-service
-                  port:
-                    number: 80
+            pathType: Prefix
+            backend:
+              service:
+                name: lms-backend-service
+                port:
+                  number: 80
