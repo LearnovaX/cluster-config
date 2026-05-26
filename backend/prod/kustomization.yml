@@ -23,4 +23,4 @@ resources:
 images:
 - name: backend-image
   newName: ghcr.io/learnovax/backend
-  newTag: 99b5aeb07a5f3852e94ec94c07ef56f73e3308ec
+  newTag: d11e94768ad013b2304c51a6e5fb3b35dd878cd3
