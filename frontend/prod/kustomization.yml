@@ -12,4 +12,4 @@ resources:
 images:
 - name: frontend-image
   newName: ghcr.io/learnovax/frontend
-  newTag: be6085d8e639d3667a1c402b2ea6a0825f3f7e9b
+  newTag: 98fac0c78bdcd9a982da52fee5dc249be5786248
