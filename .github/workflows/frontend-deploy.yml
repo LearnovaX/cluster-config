@@ -59,7 +59,7 @@ jobs:
           kubectl kustomize frontend/prod > /tmp/manifests.yaml
 
       - name: Run Trivy config scan
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.36.0
         with:
           scan-type: config
           scan-ref: /tmp/manifests.yaml
