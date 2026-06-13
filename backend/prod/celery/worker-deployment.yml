@@ -14,6 +14,7 @@ spec:
       labels:
         app: celery-worker
     spec:
+      enableServiceLinks: false
       # Affinity belongs here at the Pod spec level
       affinity:
         nodeAffinity:
