@@ -43,8 +43,8 @@ spec:
           envFrom:
             - secretRef:
                 name: backend-secrets
-            # - secretRef:
-            #     name: postgres-secret
+            - secretRef:
+                name: postgres-secret
           resources:
             requests:
               memory: "128Mi"
