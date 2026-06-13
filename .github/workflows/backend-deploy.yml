@@ -6,7 +6,7 @@ on:
       - main
 
     paths:
-      - 'backend/prod/**'
+      - 'backend/prod/kustomization.yml'
 
   workflow_dispatch:
 
