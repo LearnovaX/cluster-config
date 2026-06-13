@@ -18,6 +18,7 @@ spec:
         app: celery-beat
 
     spec:
+      enableServiceLinks: false
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
